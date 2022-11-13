@@ -5540,8 +5540,11 @@
                                     loop: true,
                                     'x5-video-player-type': 'H5',
                                     'x5-video-player-orientation':"portraint",
+                                    'x5-video-orientation':'portraint',
                                     'x-webkit-airplay':"allow",
-                                    autoplay: "autoplay",
+                                    'playsinline':true,
+                                    'webkit-playsinline':true,
+                                    // autoplay: "autoplay",
                                     muted: true,
                                     children: [(0,
                                         x.jsx)("source", {
