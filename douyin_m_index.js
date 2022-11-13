@@ -2,22 +2,37 @@
 /*! For license information please see index.11b66bf8.js.LICENSE.txt */
 !function () {
     "use strict";
-    // setInterval(() => {
-    //     for (let v of document.getElementsByTagName('video')) {
-    //         !v.getAttribute('processed') && v.addEventListener('click', () => {
-    //             if (v.requestFullscreen) {
-    //                 v.requestFullscreen();
-    //             } else if (v.mozRequestFullScreen) {
-    //                 v.mozRequestFullScreen();
-    //             } else if (v.webkitRequestFullscreen) {
-    //                 v.webkitRequestFullscreen();
-    //             } else if (v.msRequestFullscreen) {
-    //                 v.msRequestFullscreen();
-    //             }
-    //         });
-    //         v.setAttribute('processed', true);
-    //     }
-    // }, 100);
+    setInterval(() => {
+        for (let v of document.getElementsByTagName('video')) {
+            if (v.getAttribute('processed')) {
+                continue;
+            }
+            v.addEventListener('click', () => {
+                if (v.requestFullscreen) {
+                    v.requestFullscreen();
+                } else if (v.mozRequestFullScreen) {
+                    v.mozRequestFullScreen();
+                } else if (v.webkitRequestFullscreen) {
+                    v.webkitRequestFullscreen();
+                } else if (v.msRequestFullscreen) {
+                    v.msRequestFullscreen();
+                }
+            });
+            for (let vd of ['fullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange', 'webkitfullscreenchange']) {
+                v.addEventListener(
+                    vd, event => {
+                        if (!document.fullscreenElement) {
+                            v.pause();
+                        } else {
+                            v.play();
+                        }
+                    },
+                    false
+                );
+            }
+            v.setAttribute('processed', true);
+        }
+    }, 100);
     var e, n, t, r = {
         57601: function (e, n, t) {
             t.d(n, {
@@ -5532,26 +5547,19 @@
                     return (0,
                         x.jsxs)("div", {
                             className: "user-post-cover",
-                            // onClick: function(){return ()=>console.log('a');},
+                            // onClick: o,
                             children: [(0,
                                 x.jsx)("video", {
                                     className: "user-post-cover_img",
-                                    // 'ondblclick': 'console.log("C");',
                                     poster: t,
-                                    controls: true,
                                     loop: true,
                                     'x5-video-player-type': 'H5',
-                                    'x5-video-player-orientation':"portraint",
-                                    'x5-video-orientation':'portraint',
-                                    'x-webkit-airplay':"allow",
-                                    // 'playsinline':true,
-                                    // 'webkit-playsinline':true,
-                                    // autoplay: "autoplay",
-                                    // muted: true,
+                                    'x5-video-player-orientation': "portraint",
+                                    'x5-video-orientation': 'portraint',
+                                    'x-webkit-airplay': "allow",
                                     children: [(0,
                                         x.jsx)("source", {
                                             src: e.video && e.video.play_addr && e.video.play_addr.url_list && e.video.play_addr.url_list[0]
-                                            // type: "video/mp4"
                                         })]
                                 }), (0,
                                     x.jsx)("div", {
