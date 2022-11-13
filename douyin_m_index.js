@@ -5518,13 +5518,17 @@
                     className: "user-post-cover",
                     // onClick: o,
                     children: [(0,
-                    x.jsxs)("a", {
-                        href: 'https://m.douyin.com/share/video/' + e.awemeId,
-                        target: '_blank',
-                        children: [(0,
-                        x.jsx)("img", {
+                        x.jsx)("video", {
                             className: "user-post-cover_img",
-                            src: t
+                            controls: true,
+                            loop: true,
+                            autoplay: "autoplay",
+                            muted: true,
+                            children: [(0,
+                                x.jsx)("source", {
+                                    src: e.video  && e.video.play_addr && e.video.play_addr.url_list && e.video.play_addr.url_list[0],
+                                    type: "video/mp4"
+                                })]
                         }), (0,
                         x.jsx)("div", {
                             className: "user-post-bottom-mask"
@@ -5541,7 +5545,6 @@
                                 children: Te(r)
                             })]
                         }), a]
-                    })]
                 })
             }
               , Ze = function(e) {
@@ -5561,6 +5564,7 @@
                                 return i(e)
                             },
                             awemeId: e.aweme_id,
+                            video: e.video,
                             cover: null === (r = null === (t = null === (n = null == e ? void 0 : e.video) || void 0 === n ? void 0 : n.cover) || void 0 === t ? void 0 : t.url_list) || void 0 === r ? void 0 : r[0],
                             likedCount: null === (o = null == e ? void 0 : e.statistics) || void 0 === o ? void 0 : o.digg_count
                         }, null == e ? void 0 : e.aweme_id)
@@ -6681,4 +6685,4 @@
     ));
     a = o.O(a)
 }();
-//# sourceMappingURL=index.11b66bf8.js.map
+// # sourceMappingURL=index.11b66bf8.js.map
