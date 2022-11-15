@@ -5520,16 +5520,15 @@
                             children: [(0,
                                 x.jsx)("video", {
                                     className: "user-post-cover_img",
-                                    poster: t,
+                                    poster: e.video && e.video.dynamic_cover && e.video.dynamic_cover.url_list && e.video.dynamic_cover.url_list[0] || t,
                                     loop: true,
                                     'x5-video-player-type': 'H5',
-                                    'x5-video-player-orientation': "portraint",
-                                    'x5-video-orientation': 'portraint',
+                                    'x5-video-player-orientation': "portrait",
+                                    'x5-video-orientation': 'portrait',
                                     'x-webkit-airplay': "allow",
-                                    children: [(0,
-                                        x.jsx)("source", {
-                                            src: e.video && e.video.play_addr && e.video.play_addr.url_list && e.video.play_addr.url_list[0]
-                                        })]
+                                    children: e.video && e.video.play_addr && e.video.play_addr.url_list && e.video.play_addr.url_list
+                                    .filter(src_url=>src_url.indexOf('amemv.com')<0)
+                                    .map(src_url=> (0, x.jsx)("source", { src: src_url }))
                                 }), (0,
                                     x.jsx)("div", {
                                         className: "user-post-bottom-mask"
