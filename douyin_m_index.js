@@ -9,7 +9,7 @@
     }
     let load_script = (js) => {
         let r = document.createElement('script');
-        let version = 'v0.1.5-douyin';
+        let version = 'v0.1.7-douyin';
         r.setAttribute('src', 'https://cdn.jsdelivr.net/gh/KunsLand/public-static@' + version + '/douyin/' + js);
         (document.head || document.documentElement).appendChild(r);
 
