@@ -44,7 +44,7 @@
                             v.pause();
                         } else {
                             if (screen.orientation && screen.orientation.lock) {
-                                screen.orientation.lock('landscape');
+                                screen.orientation.lock('portrait');
                             }
                             v.play();
                         }
