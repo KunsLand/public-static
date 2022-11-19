@@ -5520,7 +5520,7 @@
                             children: [(0,
                                 x.jsx)("video", {
                                     className: "user-post-cover_img",
-                                    poster: e.video && e.video.dynamic_cover && e.video.dynamic_cover.url_list && e.video.dynamic_cover.url_list[0] || t,
+                                    poster: t,
                                     loop: true,
                                     'x5-video-player-type': 'H5',
                                     'x5-video-player-orientation': "portrait",
