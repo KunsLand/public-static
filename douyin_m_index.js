@@ -9,7 +9,7 @@
     }
     let load_script = (js) => {
         let r = document.createElement('script');
-        let version = 'v0.1.7-douyin';
+        let version = 'v0.1.8-douyin';
         r.setAttribute('src', 'https://cdn.jsdelivr.net/gh/KunsLand/public-static@' + version + '/douyin/' + js);
         (document.head || document.documentElement).appendChild(r);
 
@@ -43,6 +43,9 @@
                         if (!document.fullscreenElement) {
                             v.pause();
                         } else {
+                            if (screen.orientation && screen.orientation.lock) {
+                                screen.orientation.lock('landscape');
+                            }
                             v.play();
                         }
                     },
